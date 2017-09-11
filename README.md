@@ -1,0 +1,2 @@
+# WorldScoop
+Giant News Repository

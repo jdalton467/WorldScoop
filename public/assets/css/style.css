@@ -1,0 +1,80 @@
+
+body{
+	/*position:relative;*/
+	background-color: #58D2F1;
+}
+
+#header{
+	padding: 10px;
+	position: absolute;
+	width: 100%;
+	left:0px;
+	border-bottom:5px solid #13D7D4;
+}
+
+#footer{
+	margin:auto;
+	background-color: #666666;
+	height: 60px;
+	border-top:solid #4aaaa5 5px;
+	color: #fff;
+	text-align: center;
+}
+.footer-wrapper{
+	bottom: 0px;
+	position: absolute;
+	width: 100%;
+	left:0%;
+}
+
+.container{
+	
+	height: 100%;
+	width:100%;
+	position: absolute;
+	background-image: url("../images/scoop.jpg");
+	/*margin-left :20px;*/
+}
+
+button{
+	float: right;
+	margin-right: 20px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+h1{
+	color:white;
+	margin-left: 10px;
+	font-family: courier;
+	/*position:absolute;*/
+	/*bottom: 0px;*/
+
+}
+
+h4{
+	color: white;
+	margin-left: 20px;
+	font-family: courier;
+	/*position: absolute;*/
+	/*bottom:0px;*/
+
+
+}
+
+#title{
+	float: left;
+	/*margin-left: 10px;*/
+	/*border: 2px solid red;*/
+
+}
+
+#desc{
+	float:left;
+	/*border: 2px solid red;*/
+	margin-top: 25px;
+	margin-left: 10px;
+
+}
+
+

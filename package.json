@@ -1,0 +1,19 @@
+{
+  "name": "worldscoop",
+  "version": "1.0.0",
+  "description": "Giant News Repository",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdalton467/WorldScoop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdalton467/WorldScoop/issues"
+  },
+  "homepage": "https://github.com/jdalton467/WorldScoop#readme"
+}

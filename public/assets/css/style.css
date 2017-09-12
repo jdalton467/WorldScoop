@@ -31,11 +31,17 @@ a:hover{
 .nav{
 	/*border:white solid 2px;*/
 	float: right;
-	margin-top: 27px;
-	margin-right: 30px;
+	margin-top: 37px;
+	margin-right: 35px;
+	z-index: 1;
+	position:relative;
 }
 
-#link{
+nav{
+	z-index: 0;
+}
+
+.link{
 	padding-left: 50px;
 	padding-right: 50px;
 }
@@ -44,6 +50,8 @@ a{
 	font-family: courier;
 	color: white;
 	display: inline-block;
+	position: relative;
+	z-index: 2;
 }
 
 

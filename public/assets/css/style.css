@@ -4,6 +4,10 @@ body{
 	background-color: #58D2F1;
 }
 
+a:hover{
+	background-color: red;
+}
+
 #header{
 	padding: 10px;
 	position: absolute;
@@ -17,7 +21,7 @@ body{
 #footer{
 	margin:auto;
 	background-color: #292B2C;
-	height: 60px;
+	height: 69px;
 	border-top:solid red 5px;
 	color: #fff;
 	text-align: center;
@@ -106,4 +110,33 @@ h4{
 
 }
 
+.ipsum{
+	position: relative;
+}
+
+.bipsum{
+	/*margin-top: 400px;*/
+	position: relative;
+	/*margin-left:-10px;*/
+}
+
+.img{
+	left:0px;
+	margin-left: -20px;
+	margin-top: 94px;
+	opacity: .90;
+}
+
+
+.lorem{
+	margin-top: 94px;
+	position: absolute;
+	background-color: #FEE3C4;
+	opacity: .90;
+	right: 0px;
+	
+}
+.lorem h1{
+	color: black;
+}
 

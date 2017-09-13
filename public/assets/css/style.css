@@ -12,6 +12,7 @@ a:hover{
 #header{
 	padding: 10px;
 	position: absolute;
+	
 	background-color: #292B2C;
 	width: 100%;
 	left:0px;
@@ -141,7 +142,7 @@ h4{
 	margin-top: 94px;
 	position: absolute;
 	background-color: #FEE3C4;
-	opacity: .90;
+	opacity: .95;
 	right: 0px;
 	
 }

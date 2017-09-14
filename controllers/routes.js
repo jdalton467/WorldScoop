@@ -1,29 +1,58 @@
-module.exports = function(passport){
- 
-  /* GET login page. */
-  router.get('/', function(req, res) {
-    // Display the Login page with any flash message, if any
-    res.render('index', { message: req.flash('message') });
+
+
+module.exports = function(app,passport){
+
+
+
+  //home page with login links
+  app.get('/', function(req, res){
+    res.render('index.html'); //load the index.html file
   });
- 
-  /* Handle Login POST */
-  router.post('/login', passport.authenticate('login', {
-    successRedirect: '/home',
-    failureRedirect: '/',
-    failureFlash : true 
-  }));
- 
-  /* GET Registration Page */
-  router.get('/signup', function(req, res){
-    res.render('register',{message: req.flash('message')});
+
+
+  //show the login form
+  app.get('login', function(req, res){
+
+    res.render('login.html', {message: req.flash('loginMessage')})
   });
- 
-  /* Handle Registration POST */
-  router.post('/signup', passport.authenticate('signup', {
-    successRedirect: '/home',
-    failureRedirect: '/signup',
-    failureFlash : true 
-  }));
- 
-  return router;
+
+ // process the login form
+    // app.post('/login', do all our passport stuff here);
+
+
+//show the signup form
+app.get('/signup', function(req, res){
+  //render the page and pass in any flashdata if it exists
+  res.render('signup.html', {message: req.flash('signupMessage')})
+});
+
+ // process the signup form
+    // app.post('/signup', do all our passport stuff here);
+
+
+ //we will want this protected do you have to be logged in to visit
+app.get('/profile', isLoggedIn, function(req, res){
+  res.render('profile.html',{
+    user : req.user //get the user out of session and pass to template
+  });
+});
+
+
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+
+};
+
+
+//route middle ware to make sure a user is logged in
+function isLoggedIn(req,res,next){
+  //if user is authenticated in the session, carry on
+  if(req.isAuthenticated())
+    return next();
+
+
+//if they aren't then redirect them to the home page
+  res.redirect('/')
 }

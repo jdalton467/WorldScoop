@@ -1,2 +1,2 @@
 # WorldScoop
-Giant News Repository
+Online News Warehouse 

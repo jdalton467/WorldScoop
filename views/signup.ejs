@@ -1,71 +1,79 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>WorldScoop</title>
-		<script
-		src="https://code.jquery.com/jquery-3.2.1.min.js"
-		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-		crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-		<link rel="shortcut icon" href=/assets/images/favicon.jpg type="image/x-icon" />
-		
-	</head>
-	<body>
-		<div class="container">
-			<!-- <div class="row"> -->
-			<!-- <div class="col-md-12"> -->
-			<nav class="navbar navbar-inverse" id="header">
-				
-				<div id="title"><h1> World Scoop </h1></div>
-				<div id="desc"> <h4>Today's Warehouse For Online News</h4>
-				</div>
-				
-			</nav>
-			<nav class="nav">
-				<a href="/" ><h4>Home</h4></a>
-				<a href="/login" class="link"><h4>Login</h4></a>
-				<a href="/signup"><h4>Sign-up</h4></a>
-			</nav>
-			<!-- </div> -->
-			<!-- </div> -->
-			<div class="row ipsum">
-				<div class="col-md-6 bipsum" >
-					<img src="https://ichef.bbci.co.uk/news/1024/media/images/48351000/gif/_48351569_640x360-news.gif" alt="news" height="505https://ichef.bbci.co.uk/news/1024/media/images/48351000/gif/_48351569_640x360-news.gif" width="690" class="img">
-				</div>
-				<div class="col-md-6 lorem">
-					<form  action="/signup" method="post" style="padding-bottom: 300px; padding-top: 20px">
-						<div class="form-group">
-							<label>Email</label>
-							<input type="text" class="form-control" name="email">
+<% include head/head %>
+<body>
+	<div class="container-fluid">
+		<div class="row first-row">
+			<div class="col-md-12">
+				<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+					
+					<div class="collapse navbar-collapse" id="navbarNavDropdown">
+						<div class="row nav-row">
+							<div class="col-md-6">
+								<div id="title"><h1> World Scoop </h1></div>
+							</div>
+							<div class="col-md-3">
+								<div id="desc" style="float:left"> <h6>Today's Warehouse For Online News</h6></div>
+							</div>
+							
+							<div class="col-md-3">
+								<ul class="navbar-nav">
+									<li class="nav-item active">
+										<a class="nav-link" href="/" style="color: white">Home <span class="sr-only">(current)</span></a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="/signup" style="color: white">Sign-up</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="/login" style="color: white">Login</a>
+									</li>
+									
+									
+								</ul>
+							</div>
 						</div>
-						<div class="form-group">
-							<label>Password </label>
-							<input type="password" class="form-control" name="password">
-						</div>
-						<div>
-						<input type="submit" class="form-control" value="Submit">Signup</input>
 					</div>
-					</form>
-				</div>
+				</nav>
 			</div>
-			<div class="footer navbar-fixed-bottom" id="footer">
-				<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-12 col-12">
-						<h4>&copy;James Dalton</h4>
+			
+		</div>
+		<div class="row ipsum">
+			<div class="col-md-6 bipsum" >
+				<img src="https://ichef.bbci.co.uk/news/1024/media/images/48351000/gif/_48351569_640x360-news.gif" alt="news" height="505https://ichef.bbci.co.uk/news/1024/media/images/48351000/gif/_48351569_640x360-news.gif" class="img">
+			</div>
+			<div class="col-md-6 lorem">
+				<form action="/signup" method="post" style="padding-bottom: 350px; padding-top: 20px" >
+					<div class="form-group">
+						<label>username</label>
+						<input type="text" class="form-control" name="email">
 					</div>
+					<div class="form-group">
+						<label>Password</label>
+						<input type="password" name="password" class="form-control">
+						<a href="#" style="color:blue">forgot password?</a>
+					</div>
+					<div>
+						<input type="submit" value="Submit" class="form-control">
+					</div>
+					<!-- <button type="button" class="btn btn-primary">Submit</button> -->
+				</form>
+			</div>
+		</div>
+		
+		<div class="footer navbar-fixed-bottom" id="footer">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-12">
+					<h4>&copy;James Dalton</h4>
 				</div>
 			</div>
 		</div>
-	</body>
-	
-	<script type="text/javascript">
-	$(document).ready(function () {
-	$('.dropdown-toggle').dropdown();
-	});
-	</script>
+		
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</body>
+<script type="text/javascript">
+$(document).ready(function () {
+$('.dropdown-toggle').dropdown();
+});
+</script>
 </html>

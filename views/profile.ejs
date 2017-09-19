@@ -1,41 +1,61 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>WorldScoop</title>
-		<script
-		src="https://code.jquery.com/jquery-3.2.1.min.js"
-		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-		crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-		<link rel="shortcut icon" href=/assets/images/favicon.jpg type="image/x-icon" />
+<% include head/head %>
+<body>
+	<div class="container-fluid">
+		<div class="row first-row">
+			<div class="col-md-12">
+				<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+					
+					<div class="collapse navbar-collapse" id="navbarNavDropdown">
+						<div class="row nav-row">
+							<div class="col-md-6">
+								<div id="title"><h1> Welcome</h1></div>
+							</div>
+							<div class="col-md-3">
+								<div id="desc" style="float:left"> </div>
+							</div>
+						</div>
+						<div class="col-md-3" style="bottom: -37px">
+							<span class="fa fa-sign-out"><a href="/" style="color: white"> Sign out</a></span>
+						</div>
+					</div>
+				</nav>
+			</div>
+			
+		</div>
+		<div class="row ipsum">
+			<div class="col-md-6 bipsum" >
+				<img src="https://ichef.bbci.co.uk/news/1024/media/images/48351000/gif/_48351569_640x360-news.gif" alt="news" height="505https://ichef.bbci.co.uk/news/1024/media/images/48351000/gif/_48351569_640x360-news.gif" class="img" style="height: 100%">
+			</div>
+			<div class="col-md-6 lorem" style="padding-bottom: 400px">
+				<div class="dropdown">
+					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Dropdown button
+					</button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div>
+				</div>
+			</div>
+		</div>
 		
-	</head>
-	  <body>
-    <div class="col-sm-8 col-sm-offset-2">
-      <div class="text-center">
-        <h1 class=" fa fa-user"> Profile</h1><br>
-        <span><strong>user id</strong>: <%= user._id ? user._id : '' %></span><br>
-        <span class="fa fa-sign-out"><a href="/"> Sign out</a></span>
-        <hr>
-        <div class="jumbotron">
-          <% if (user.local.email != null) { %>
-            <img src="https://avatars.io/gravatar/<%= user.local.email %>" class="img-circle"><br>
-            <strong>email</strong>: <%= user.local.email %><br>
-          <% } %>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-	
-	<script type="text/javascript">
-	$(document).ready(function () {
-	$('.dropdown-toggle').dropdown();
-	});
-	</script>
+		<div class="footer navbar-fixed-bottom" id="footer">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-12">
+					<h4>&copy;James Dalton</h4>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</body>
+<script type="text/javascript">
+$(document).ready(function () {
+$('.dropdown-toggle').dropdown();
+});
+</script>
 </html>

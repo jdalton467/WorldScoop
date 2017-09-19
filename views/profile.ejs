@@ -11,7 +11,8 @@
 								<div id="title"><h1> Welcome</h1></div>
 							</div>
 							<div class="col-md-3">
-								<div id="desc" style="float:left"> </div>
+								<div id="desc" style="float:left">
+								</div>
 							</div>
 						</div>
 						<div class="col-md-3" style="bottom: -37px">
@@ -24,7 +25,11 @@
 		</div>
 		<div class="row ipsum">
 			<div class="col-md-6 bipsum" >
-				<img src="https://ichef.bbci.co.uk/news/1024/media/images/48351000/gif/_48351569_640x360-news.gif" alt="news" height="505https://ichef.bbci.co.uk/news/1024/media/images/48351000/gif/_48351569_640x360-news.gif" class="img" style="height: 100%">
+				<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+					<div class="carousel-inner" role="listbox"> 
+						<!-- target div -->
+					</div>
+				</div>
 			</div>
 			<div class="col-md-6 lorem" style="padding-bottom: 400px">
 				<div class="dropdown">
@@ -49,13 +54,75 @@
 		</div>
 		
 	</div>
-	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </body>
 <script type="text/javascript">
 $(document).ready(function () {
 $('.dropdown-toggle').dropdown();
+$('.carousel').carousel();
+$('.carousel').carousel({
+interval: 2000
+});
+});
+var source = "abc-news-au";
+var queryURL =  "https://newsapi.org/v1/articles?source="+source+"&apiKey=5d9f7c67d4384f35bd73aa91efca8a73";
+var attr;
+var title;
+var description;
+var url;
+$.ajax({
+url: queryURL,
+method: "GET"
+}).done(function(response) {
+console.log(response.articles);
+for(var i = 0; i < response.articles.length; i++){
+	console.log(response.articles[i].author);
+	console.log(response.articles[i].title);
+	console.log(response.articles[i].urlToImage);
+	console.log("----------------------------");
+		attr = response.articles[i].urlToImage;
+		title = response.articles[i].title;
+		desc = response.articles[i].description;
+		url = response.articles[i].url;
+
+
+		var newDiv = $('<div>');
+		newDiv.addClass('carousel-item');
+		var newCard = $('<div>');
+		newCard.addClass('card');
+		var cardHead = $('<div>');
+		cardHead.addClass('card-header');
+		var headline = $('<h3>');
+		headline.text(title);
+		var newImg = $('<img>');
+		newImg.addClass("card-img-top");
+		newImg.attr('src', attr);
+		newImg.attr('alt','Card image cap');
+		var a = $("<a>");
+		a.attr('href',url);
+		a.append(newImg);
+		var cardDiv = $('<div>');
+		cardDiv.addClass('card-block');
+		cardDiv.append('<p>' + desc + '</p>');
+		cardHead.append(headline);
+		newCard.append(cardHead);
+		newCard.append(a);
+		newCard.append(cardDiv);
+		newDiv.append(newCard);
+		if(i === 0 ){
+			newDiv.addClass('active');
+		}
+
+	
+		$('.carousel-inner').append(newDiv);
+
+
+
+
+}
 });
 </script>
 </html>

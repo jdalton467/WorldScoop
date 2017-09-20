@@ -34,12 +34,10 @@
 			<div class="col-md-6 lorem" style="padding-bottom: 400px">
 				<div class="dropdown">
 					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Dropdown button
+					Select Source
 					</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="#">Action</a>
-						<a class="dropdown-item" href="#">Another action</a>
-						<a class="dropdown-item" href="#">Something else here</a>
+					
 					</div>
 				</div>
 			</div>
@@ -67,12 +65,75 @@ $('.carousel').carousel({
 interval: 2000
 });
 });
-var source = "abc-news-au";
-var queryURL =  "https://newsapi.org/v1/articles?source="+source+"&apiKey=5d9f7c67d4384f35bd73aa91efca8a73";
+
+
+
+
+
+
+var sourceName;
 var attr;
 var title;
 var description;
 var url;
+var queryURL;
+var attr;
+var title;
+var description;
+var url;
+const length = 60;
+
+
+///////////////////////////////////////////////////////////////////
+//getting the sources from the api to 
+//be used in subsequent ajax calls
+$.ajax({
+url:"https://newsapi.org/v1/sources?language=en",
+method: "GET"
+}).done(function(response) {
+console.log(response);
+console.log(response.sources.length);
+for(var i = 0; i < response.sources.length; i++){
+	console.log(response.sources[i].id);
+	console.log(response.sources[i].name);
+	console.log("======================");
+	// <a class="dropdown-item" href="#"></a>
+	// <a class="dropdown-item" href="#"></a>
+	// <a class="dropdown-item" href="#"></a>
+	id = response.sources[i].id;
+	sourceName = response.sources[i].name;
+	 var newSource = $('<option/>',{
+      class: 'dropdown-item',
+      name: i,
+      href: '#',
+      value: id,
+      text: sourceName,
+      click: function (event){
+       	$(".carousel-item").remove();
+        var source = this.value;
+        queryURL = "https://newsapi.org/v1/articles?source="+source+"&apiKey=5d9f7c67d4384f35bd73aa91efca8a73";
+        console.log(queryURL);
+        getNews();
+      }
+    });
+	$('.dropdown-menu').append(newSource);
+
+}
+
+});
+///////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////
+
+
+
+
+
+
+///////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////
+function getNews(){
 $.ajax({
 url: queryURL,
 method: "GET"
@@ -118,11 +179,10 @@ for(var i = 0; i < response.articles.length; i++){
 
 	
 		$('.carousel-inner').append(newDiv);
-
-
-
-
 }
 });
+};
+
+//////////////////////////////////////////////////////////////////
 </script>
 </html>

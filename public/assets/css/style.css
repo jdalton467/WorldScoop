@@ -86,13 +86,14 @@ li{
 #footer{
 	margin:auto;
 	background-color: #292B2C;
-	height: 69px;
+	height: 80px;
 	border-top:solid red 5px;
 	color: #fff;
 	text-align: center;
 	opacity: .95;
 	font-family: courier;
 	width: 100%;
+	padding-top: 10px;
 }
 
 .ipsum{

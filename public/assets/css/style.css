@@ -101,7 +101,7 @@ li{
 	margin-right: 0px;
 	margin-left:0px;
 	z-index: 2;
-	background-color: #F9E7BC;
+	background-color: #34E2E4;
 	padding: 10px;
 	
 
@@ -109,16 +109,7 @@ li{
 
 }
 
-.lorem{
-	background-color: #F9E7BC;
-	opacity: .95;
-	/*position: absolute;*/
-	height: 520px;
-	width: 650px;
 
-	
-
-}
 .bipsum{
 	/*width: 630px;*/
 	/*background-color: #F9E7BC;*/
@@ -136,7 +127,11 @@ li{
 }
 
 .dropdown{
-	margin-left: 250px;
+	/*margin-left: 250px;*/
+	margin-top: 200px;
+	margin-left: 15px;
+	/*padding-left: 10px;*/
+
 }
 
 .dropdown-menu{
@@ -159,10 +154,29 @@ li{
 	width: 630px;
 	padding-left: 10px;
 	padding-right: 10px;
+	padding-bottom: 10px;
 
 }
 
 
+.lorem{
+	background-color: #F9E7BC;
+	opacity: .95;
+	position: relative;
+	height: 520px;
+	width: 650px;
+	border-radius: 5px;
+}
+
+.sidebar{
+	background-color: red;
+	opacity: .95;
+	position: absolute;
+	left:0px;
+	height: 520px;
+	width: 180px;
+	border-radius: 5px;
+}
 
 nav{
 	z-index: 0;
@@ -183,3 +197,7 @@ nav{
 	left:0%;
 }
 
+.card-img-top{
+	height: 400px;
+	width: 520px;
+}

@@ -49,6 +49,7 @@ for(var i = 0; i < response.sources.length; i++){
        	$(".carousel-item").remove();
         var source = this.value;
         queryURL = "https://newsapi.org/v1/articles?source="+source+"&apiKey=5d9f7c67d4384f35bd73aa91efca8a73";
+        $(".btn").text(this.text);
         console.log(queryURL);
         getNews();
       }
@@ -87,9 +88,7 @@ for(var i = 0; i < response.articles.length; i++){
 		url = response.articles[i].url;
 
 
-		var newDiv = $('<div/>',{
-			class:'carousel-item'
-		});
+		
 		var newCard = $('<div/>',{
 			class: 'card'
 		});
@@ -110,19 +109,22 @@ for(var i = 0; i < response.articles.length; i++){
 		var cardDiv = $('<div/>',{
 			class:'card-block'
 		});
-		a.append(newImg);
-		cardDiv.append('<p>' + desc + '</p>');
+		
+		
 		cardHead.append(headline);
 		newCard.append(cardHead);
+		a.append(newImg);
 		newCard.append(a);
+		cardDiv.append('<p>' + desc + '</p>');
 		newCard.append(cardDiv);
-		newDiv.append(newCard);
-		if(i === 0 ){
-			newDiv.addClass('active');
-		}
+		
+		// if(i === 0 ){
+			
+		// }
 
 	
-		$('.carousel-inner').append(newDiv);
+		$('.bipsum').append(newCard);
+		$('.bipsum').append('<br>');
 }
 });
 };

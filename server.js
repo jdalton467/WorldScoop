@@ -1,4 +1,4 @@
-var express = require('express');
+var express = require('express'); //
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -11,10 +11,10 @@ var users = require('./controllers/users.js')
 
 var port = process.env.PORT || 3000;
 
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+var passport = require('passport'); //requiring the passport npm package
+var LocalStrategy = require('passport-local').Strategy; //
 var mongoose = require('mongoose');
-var flash = require('connect-flash');
+var flash = require('connect-flash'); //diplays flash messages
 var session = require('express-session');
 
 
@@ -25,7 +25,7 @@ mongoose.connect(configDB.url);
 var app = express();
 
 //view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views')); //
 app.set('view engine', 'ejs');
 
 // ==== testing middleware ====

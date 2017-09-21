@@ -114,6 +114,7 @@ li{
 	/*position: absolute;*/
 	height: 520px;
 	width: 650px;
+
 	
 
 }
@@ -133,6 +134,10 @@ li{
 	
 }
 
+.dropdown{
+	margin-left: 250px;
+}
+
 .dropdown-menu{
 	height: 200px;
 	overflow: auto;
@@ -150,7 +155,7 @@ li{
 
 .card{
 	height: 520px;
-	width: 653px;
+	width: 630px;
 	padding-left: 10px;
 	padding-right: 10px;
 

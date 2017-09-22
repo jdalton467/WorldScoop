@@ -33,10 +33,11 @@ li{
 	
 	height: 100%;
 	width:100%;
-	position: relative;
+	position: fixed;
 	background-image: url("../images/scoop.jpg");
 	/*margin-left :20px;*/
 	left: 0px;
+	overflow: auto;
 }
 
 .navbar{
@@ -46,8 +47,10 @@ li{
 	font-family: courier;
 	border-bottom: red solid 5px;
 	padding: 5px;
-	/*position: fixed;*/
-	z-index: 1;
+	position: fixed;
+	left:0px;
+
+	z-index: 10;
 
 
 }
@@ -101,13 +104,25 @@ li{
 	margin-right: 0px;
 	margin-left:0px;
 	z-index: 2;
-	background-color: #34E2E4;
+
+	/*background-color: #34E2E4;*/
 	padding: 10px;
-	
-
-
+	overflow: auto;
 
 }
+
+.frontipsum{
+	position: relative;
+	margin-right: 0px;
+	margin-left:0px;
+	z-index: 2;
+
+	/*background-color: #34E2E4;*/
+	padding: 10px;
+	/*overflow: auto;*/
+
+}
+
 
 
 .bipsum{
@@ -117,7 +132,7 @@ li{
 	/*padding: 10px;*/
 }
 
-.carousel img{
+.card img{
 	position: relative;
 	z-index: 9;
 	height: 100%;
@@ -125,6 +140,8 @@ li{
 	height: 320px;
 	
 }
+
+
 
 .dropdown{
 	/*margin-left: 250px;*/
@@ -149,14 +166,47 @@ li{
 	width: 653px;
 }
 
+.card-holder{
+	width: 520px;
+}
+.frontcard{
+	height: 520px;
+	width: 630px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	/*position: absolute;*/
+	/*margin-left: 300px;*/
+	margin-top: 80px;
+
+
+}
 .card{
 	height: 520px;
 	width: 630px;
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-bottom: 10px;
+	/*position: absolute;*/
+	/*margin-left: 250px;*/
+	margin-top: 80px;
 
 }
+
+.card p{
+	margin-top: 20px;
+}
+
+
+.card-block{
+	
+	 text-overflow: ellipsis;
+
+  /* Required for text-overflow to do anything */
+  	white-space: nowrap;
+  	overflow: hidden;
+}
+
 
 
 .lorem{
@@ -166,16 +216,18 @@ li{
 	height: 520px;
 	width: 650px;
 	border-radius: 5px;
+	margin-top: 80px;
 }
 
 .sidebar{
 	background-color: red;
 	opacity: .95;
-	position: absolute;
-	left:0px;
+	position: fixed;
+	float: right;
 	height: 520px;
 	width: 180px;
 	border-radius: 5px;
+	
 }
 
 nav{
@@ -190,12 +242,12 @@ nav{
 	position: relative;
 	z-index: 2;
 }
-.footer-wrapper{
-	bottom: 0px;
-	position: absolute;
-	width: 100%;
-	left:0%;
-}
+/*.footer-wrapper{*/
+	/*bottom: 0px;*/
+	/*position: absolute;*/
+	/*width: 100%;*/
+	/*left:0%;*/
+/*}*/
 
 .card-img-top{
 	height: 400px;

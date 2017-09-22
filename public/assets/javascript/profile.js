@@ -14,13 +14,13 @@ interval: 2000
 var sourceName;
 var attr;
 var title;
-var description;
+var desc;
 var url;
 var queryURL;
 
 const length = 60;
 
-getNews();//calling the getNews function right away
+// getNews();//calling the getNews function right away
 ///////////////////////////////////////////////////////////////////
 //getting the sources from the api to 
 //be used in subsequent ajax calls
@@ -72,11 +72,12 @@ for(var i = 0; i < response.sources.length; i++){
 
 //////////////////////////////////////////////////////////////////
 function getNews(){
+$('.bipsum').empty();
 $.ajax({
 url: queryURL,
 method: "GET"
 }).done(function(response) {
-console.log(response.articles);
+// console.log(response.articles.length);
 for(var i = 0; i < response.articles.length; i++){
 	console.log(response.articles[i].author);
 	console.log(response.articles[i].title);
@@ -112,19 +113,16 @@ for(var i = 0; i < response.articles.length; i++){
 		
 		
 		cardHead.append(headline);
-		newCard.append(cardHead);
 		a.append(newImg);
-		newCard.append(a);
-		cardDiv.append('<p>' + desc + '</p>');
+		cardDiv.append(a);
+		newCard.append(cardHead);
 		newCard.append(cardDiv);
+		newCard.append('<p>' + desc + '</p>');
 		
-		// if(i === 0 ){
-			
-		// }
 
-	
+
 		$('.bipsum').append(newCard);
-		$('.bipsum').append('<br>');
+		// $('.bipsum').append('<br>');
 }
 });
 };

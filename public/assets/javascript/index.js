@@ -87,7 +87,8 @@ function getNews(sourceName) {
             class: 'carousel-item'
         });
         var newCard = $('<div/>', {
-            class: 'card'
+            class: 'card',
+            // class: 'frontcard'
         });
         var cardHead = $('<div/>', {
             class: 'card-header'
@@ -106,12 +107,12 @@ function getNews(sourceName) {
         var cardDiv = $('<div/>', {
             class: 'card-block'
         });
-        a.append(newImg);
-        cardDiv.append('<p>' + newsDesc + '</p>');
         cardHead.append(headline);
+        a.append(newImg);
+        cardDiv.append(a);
         newCard.append(cardHead);
-        newCard.append(a);
         newCard.append(cardDiv);
+        newCard.append('<p>' + desc + '</p>');
         newDiv.append(newCard);
        
       

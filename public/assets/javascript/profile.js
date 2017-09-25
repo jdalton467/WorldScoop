@@ -16,11 +16,60 @@ var attr;
 var title;
 var desc;
 var url;
-var queryURL;
+var APIkey = "072ec970f018e214273ac354bb30b066";
+var queryURL = "https://newsapi.org/v1/articles?source=abc-news-au&apiKey=5d9f7c67d4384f35bd73aa91efca8a73";
 
 const length = 60;
+// var lat;
+// var long;
+/////////weather api test//////////////////////////
 
-// getNews();//calling the getNews function right away
+/////////////googlemap api test/////////////////////
+
+$.ajax({
+	url:"https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAwFfSMie364wTnCSYC53YSZSNgEZwF6Ws",
+	method: "POST"
+}).done(function(response){
+	console.log(response);
+	console.log("lat: " + response.location.lat);
+	console.log("long: " + response.location.lng)
+	var lat = response.location.lat;
+	var long = response.location.lng;
+	getWeather(lat,long);
+})
+
+function getWeather(lat,long){
+	$.ajax({
+	url:"http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long+"&units=imperial&APPID=" + APIkey,
+	method: "GET"
+}).done(function(response){
+	console.log(response);
+	console.log(response.main);
+	console.log(response.weather);
+	var place = $('<p>' + "current weather for " + response.name + '</p>');
+	var desc =  $('<p>' + "description: " + response.weather[0].description + '</p>');
+	var temp = $('<p>' + "temp: " + response.main.temp + " F" + '</p>');
+	var humidity = $('<p>' + 'humidity: ' + response.main.humidity + '</p>');
+	$('#leftside').append(place).append(desc).append(temp).append(humidity);
+
+})
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////
+
+getNews();//calling the getNews function right away
 ///////////////////////////////////////////////////////////////////
 //getting the sources from the api to 
 //be used in subsequent ajax calls
@@ -31,9 +80,9 @@ method: "GET"
 console.log(response);
 console.log(response.sources.length);
 for(var i = 0; i < response.sources.length; i++){
-	console.log(response.sources[i].id);
-	console.log(response.sources[i].name);
-	console.log("======================");
+	// console.log(response.sources[i].id);
+	// console.log(response.sources[i].name);
+	// console.log("======================");
 	// <a class="dropdown-item" href="#"></a>
 	// <a class="dropdown-item" href="#"></a>
 	// <a class="dropdown-item" href="#"></a>
@@ -50,7 +99,7 @@ for(var i = 0; i < response.sources.length; i++){
         var source = this.value;
         queryURL = "https://newsapi.org/v1/articles?source="+source+"&apiKey=5d9f7c67d4384f35bd73aa91efca8a73";
         $(".btn").text(this.text);
-        console.log(queryURL);
+        // console.log(queryURL);
         getNews();
       }
     });
@@ -79,10 +128,10 @@ method: "GET"
 }).done(function(response) {
 // console.log(response.articles.length);
 for(var i = 0; i < response.articles.length; i++){
-	console.log(response.articles[i].author);
-	console.log(response.articles[i].title);
-	console.log(response.articles[i].urlToImage);
-	console.log("----------------------------");
+	// console.log(response.articles[i].author);
+	// console.log(response.articles[i].title);
+	// console.log(response.articles[i].urlToImage);
+	// console.log("----------------------------");
 		attr = response.articles[i].urlToImage;
 		title = response.articles[i].title;
 		desc = response.articles[i].description;

@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');
-
+require('mongoose-type-url');
 var Schema = mongoose.Schema;
 
 
 var articleSchema = mongoose.Schema({
     
     article:{
-    	type:String
+    	type: mongoose.SchemaTypes.Url
     }
 });
 

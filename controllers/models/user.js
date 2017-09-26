@@ -9,10 +9,10 @@ var userSchema = mongoose.Schema({
     email: String,
     password: String,
 },
-	article:{
+	article:[{
 		type: Schema.Types.ObjectId, 
 		ref: 'Article'
-	}
+	}]
 });
 
 

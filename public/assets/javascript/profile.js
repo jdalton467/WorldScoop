@@ -143,8 +143,6 @@ for(var i = 0; i < response.articles.length; i++){
 
 
 		var form = $('<form/>',{
-			action: '/profile',
-			method: 'post'
 		});
 		var input = $('<input/>',{
 			name: 'article',
@@ -175,9 +173,16 @@ for(var i = 0; i < response.articles.length; i++){
 		});
 		var save = $('<button/>',{
 			class: 'btn btn-link',
+			id: url,
 			type: 'submit',
 			value: 'Submit',
-			text: 'save for later?'
+			text: 'save for later?',
+			click: function(event){
+				var reqData = { article : this.id};
+				$.post('/profile', reqData, function(data){
+					console.log(data);
+				})
+			}
 
 			
 		});

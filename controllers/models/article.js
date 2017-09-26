@@ -7,6 +7,10 @@ var articleSchema = mongoose.Schema({
     
     article:{
     	type: mongoose.SchemaTypes.Url
+    },
+    user: {
+    	type: Schema.Types.ObjectId,
+    	ref: 'User'
     }
 });
 

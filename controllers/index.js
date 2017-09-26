@@ -40,12 +40,13 @@ router.post('/profile', function(req, res) {
     // User.find();
     console.log(req.user._id);
     var article = new Article({article: req.body.article});
-    
+
 
     article.save(function(error, doc) {
             if (error) {
                 res.send(error);
             } else {
+               
                 var id = doc._id;
                 User.findOneAndUpdate({
                     _id: req.user._id
@@ -55,12 +56,13 @@ router.post('/profile', function(req, res) {
                     if (err) {
                         res.send(err);
                     } else {
-                        res.send(doc);
-                        console.log(doc);
+                       // res.send(doc);
                     }
                 })
+                res.send(doc);
             }
     })
+
 })
 
 router.get('/logout', function(req, res) {

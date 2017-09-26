@@ -178,9 +178,11 @@ for(var i = 0; i < response.articles.length; i++){
 			value: 'Submit',
 			text: 'save for later?',
 			click: function(event){
+				event.preventDefault();
 				var reqData = { article : this.id};
 				$.post('/profile', reqData, function(data){
 					console.log(data);
+					$("#savedArticles").append(data.article);
 				})
 			}
 

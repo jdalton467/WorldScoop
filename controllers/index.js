@@ -46,11 +46,12 @@ router.post('/profile', function(req, res) {
             if (error) {
                 res.send(error);
             } else {
+                var id = doc._id;
                 User.findOneAndUpdate({
                     _id: req.user._id
-                }, {
-                    article: doc._id
-                }).exec(function(err, doc) {
+                }, {$push :{
+                    article: id
+                }}).exec(function(err, doc) {
                     if (err) {
                         res.send(err);
                     } else {

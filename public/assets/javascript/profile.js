@@ -20,6 +20,10 @@ var APIkey = "072ec970f018e214273ac354bb30b066";
 var queryURL = "https://newsapi.org/v1/articles?source=abc-news-au&apiKey=5d9f7c67d4384f35bd73aa91efca8a73";
 
 const length = 60;
+
+
+
+
 // var lat;
 // var long;
 /////////weather api test//////////////////////////
@@ -138,9 +142,19 @@ for(var i = 0; i < response.articles.length; i++){
 		url = response.articles[i].url;
 
 
-		
+		var form = $('<form/>',{
+			action: '/profile',
+			method: 'post'
+		});
+		var input = $('<input/>',{
+			name: 'article',
+			value: url,
+			id: 'input'
+		})
 		var newCard = $('<div/>',{
+			name: url,
 			class: 'card'
+
 		});
 		var cardHead = $('<div/>',{
 			class: 'card-header'
@@ -159,6 +173,14 @@ for(var i = 0; i < response.articles.length; i++){
 		var cardDiv = $('<div/>',{
 			class:'card-block'
 		});
+		var save = $('<button/>',{
+			class: 'btn btn-link',
+			type: 'submit',
+			value: 'Submit',
+			text: 'save for later?'
+
+			
+		});
 		
 		
 		cardHead.append(headline);
@@ -167,10 +189,12 @@ for(var i = 0; i < response.articles.length; i++){
 		newCard.append(cardHead);
 		newCard.append(cardDiv);
 		newCard.append('<p>' + desc + '</p>');
-		
+		newCard.append(save);
+		form.append(newCard);
+		form.append(input);
 
 
-		$('.bipsum').append(newCard);
+		$('.bipsum').append(form);
 		// $('.bipsum').append('<br>');
 }
 });

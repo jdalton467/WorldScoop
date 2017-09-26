@@ -187,7 +187,7 @@ li{
 
 }
 .card-header{
-	background-color: #C4F7A9;
+	/*background-color: #C4F7A9;*/
 }
 .card{
 	height: 520px;
@@ -198,7 +198,7 @@ li{
 	/*position: absolute;*/
 	/*margin-left: 250px;*/
 	margin-top: 80px;
-	background-color: #C4F7A9;
+	/*background-color: #C4F7A9;*/
 
 }
 
@@ -315,4 +315,9 @@ nav{
 .card-img-top{
 	height: 400px;
 	width: 520px;
+}
+
+
+#input{
+	display: none;
 }

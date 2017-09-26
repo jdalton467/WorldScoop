@@ -1,10 +1,13 @@
-
 var mongoose = require('mongoose');
 
+var Schema = mongoose.Schema;
+
+
 var articleSchema = mongoose.Schema({
-	url: String
-})
+    body:{
+        type: String
+    }
+});
 
 
-//model for saving articles that people would want to come back to later
 module.exports = mongoose.model('Article', articleSchema);

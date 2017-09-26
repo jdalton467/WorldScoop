@@ -35,10 +35,31 @@ router.get('/profile', isLoggedIn, function(req, res) {
 
 });
 
-router.post('/profile', function(req, res){
-    // console.log(req);
+router.post('/profile', function(req, res) {
+    console.log(req.body);
+    // User.find();
     console.log(req.user._id);
-    res.send('hi');
+    var article = new Article({article: req.body.article});
+    
+
+    article.save(function(error, doc) {
+            if (error) {
+                res.send(error);
+            } else {
+                User.findOneAndUpdate({
+                    _id: req.user._id
+                }, {
+                    article: doc._id
+                }).exec(function(err, doc) {
+                    if (err) {
+                        res.send(err);
+                    } else {
+                        res.send(doc);
+                        console.log(doc);
+                    }
+                })
+            }
+    })
 })
 
 router.get('/logout', function(req, res) {

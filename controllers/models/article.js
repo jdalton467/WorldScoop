@@ -4,8 +4,9 @@ var Schema = mongoose.Schema;
 
 
 var articleSchema = mongoose.Schema({
-    body:{
-        type: String
+    
+    article:{
+    	type:String
     }
 });
 

@@ -254,19 +254,34 @@ li{
 
 
 #savedArticles{
-	background-color: red;
-	opacity: .8;
+	background-color: #413F3F;
+	color: white;
+	opacity: .95;
 	position: fixed;
 	right: 0px;
 	height: 420px;
 	width: 300px;
 	border-radius: 5px;
-	margin-right: 60px;
+	margin-right: 50px;
 	margin-top: 80px;
+
+}
+
+#savedArticles p {
+	color: white;
+}
+
+#savedArticles p:hover{
 	
-	
+	color:red;
+	font-weight: bold;
 	
 }
+
+#savedArticles a:hover{
+	text-decoration: none;
+}
+
 
 
 #leftside{
@@ -279,6 +294,7 @@ li{
 	width: 300px;
 	margin-left: 5px;/
 	left: 0px;
+
 }
 
 #rightside{

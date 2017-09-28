@@ -4,7 +4,9 @@ var Schema = mongoose.Schema;
 
 
 var articleSchema = mongoose.Schema({
-    
+    title:{
+    	type: String
+    },
     article:{
     	type: mongoose.SchemaTypes.Url
     },

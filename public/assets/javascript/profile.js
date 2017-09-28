@@ -4,6 +4,7 @@ $('.carousel').carousel();
 $('.carousel').carousel({
 interval: 2000
 });
+$().button('toggle');
 });
 
 
@@ -173,17 +174,28 @@ for(var i = 0; i < response.articles.length; i++){
 		});
 		var save = $('<button/>',{
 			class: 'btn btn-link',
+			name: title,
 			id: url,
 			type: 'submit',
 			value: 'Submit',
-			text: 'save for later?',
+			text: 'save',
 			click: function(event){
 				event.preventDefault();
-				var reqData = { article : this.id};
+				var reqData = {title: this.name, article : this.id};
 				$.post('/profile', reqData, function(data){
 					console.log(data);
-					$("#savedArticles").append(data.article);
+					
+					var a = $("<a>").attr('href', data.article);
+					var p = $("<p>").text(data.title);
+					
+					a.append(p);
+					
+					$("#savedArticles").append(a);
+					
+
 				})
+				$(this).text("saved");
+				$(this).attr('disabled',true);
 			}
 
 			

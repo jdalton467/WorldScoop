@@ -39,7 +39,7 @@ router.post('/profile', function(req, res) {
     console.log(req.body);
     // User.find();
     console.log(req.user._id);
-    var article = new Article({article: req.body.article});
+    var article = new Article({title: req.body.title,article: req.body.article});
 
 
     article.save(function(error, doc) {

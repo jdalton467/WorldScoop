@@ -21,7 +21,7 @@ var APIkey = "072ec970f018e214273ac354bb30b066";
 var queryURL = "https://newsapi.org/v1/articles?source=abc-news-au&apiKey=5d9f7c67d4384f35bd73aa91efca8a73";
 
 const length = 60;
-
+var savedArr = [];
 
 
 
@@ -31,6 +31,7 @@ $.post("profile/saveduser", function(data) {
 }).then(function(data) {
     console.log(data.article);
     var arr = [];
+
     for (var i = 0; i < data.article.length; i++) {
 
         $.post("profile/savedarticle", {
@@ -44,28 +45,17 @@ $.post("profile/saveduser", function(data) {
             a.append(p);
 
             $(".force-overflow").append(a);
-        })
+            savedArr.push(data.title);
+        });
+
     }
+    
+
 
 
 });
 
 
-// function savedArticles(article){
-// for(var i = 0; article.length; i++){
-// var reqData = {_id:article[i]};
-// $.post('profile/savedarticle', reqData,function(data){
-// console.log(data);
-// })
-// i++;
-// }
-// }
-
-// var lat;
-// var long;
-/////////weather api test//////////////////////////
-
-/////////////googlemap api test/////////////////////
 
 
 
@@ -108,7 +98,7 @@ function getWeather(lat, long) {
 
 ////////////////////////////////////
 
-getNews(); //calling the getNews function right away
+setTimeout(getNews, 1000); //calling the getNews function right away
 ///////////////////////////////////////////////////////////////////
 //getting the sources from the api to 
 //be used in subsequent ajax calls
@@ -119,12 +109,7 @@ $.ajax({
     console.log(response);
     console.log(response.sources.length);
     for (var i = 0; i < response.sources.length; i++) {
-        // console.log(response.sources[i].id);
-        // console.log(response.sources[i].name);
-        // console.log("======================");
-        // <a class="dropdown-item" href="#"></a>
-        // <a class="dropdown-item" href="#"></a>
-        // <a class="dropdown-item" href="#"></a>
+
         id = response.sources[i].id;
         sourceName = response.sources[i].name;
         var newSource = $('<option/>', {
@@ -147,112 +132,121 @@ $.ajax({
     }
 
 });
-///////////////////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////
-
-
-
-
-
-
-///////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////
 function getNews() {
     $('.bipsum').empty();
     $.ajax({
         url: queryURL,
         method: "GET"
     }).done(function(response) {
-        // console.log(response.articles.length);
-        for (var i = 0; i < response.articles.length; i++) {
-            // console.log(response.articles[i].author);
-            // console.log(response.articles[i].title);
-            // console.log(response.articles[i].urlToImage);
-            // console.log("----------------------------");
-            attr = response.articles[i].urlToImage;
-            title = response.articles[i].title;
-            desc = response.articles[i].description;
-            url = response.articles[i].url;
+            var checkArr = [];
+            for (var i = 0; i < response.articles.length; i++) {
+                // console.log(response.articles[i].author);
+                // console.log(response.articles[i].title);
+                // console.log(response.articles[i].urlToImage);
+                // console.log("----------------------------");
+                attr = response.articles[i].urlToImage;
+                title = response.articles[i].title;
+                desc = response.articles[i].description;
+                url = response.articles[i].url;
 
 
-            var form = $('<form/>', {});
-            var input = $('<input/>', {
-                name: 'article',
-                value: url,
-                id: 'input'
-            })
-            var newCard = $('<div/>', {
-                name: url,
-                class: 'card'
 
-            });
-            var cardHead = $('<div/>', {
-                class: 'card-header'
-            });
-            var headline = $('<h4/>', {
-                text: title
-            });
-            var newImg = $('<img/>', {
-                class: 'card-img-top',
-                src: attr,
-                alt: 'Card image cap'
-            });
-            var a = $("<a/>", {
-                href: url
-            });
-            var cardDiv = $('<div/>', {
-                class: 'card-block'
-            });
-            var save = $('<button/>', {
-                class: 'btn btn-link',
-                name: title,
-                id: url,
-                type: 'submit',
-                value: 'Submit',
-                text: 'save',
-                click: function(event) {
-                    event.preventDefault();
-                    var reqData = {
-                        title: this.name,
-                        article: this.id
-                    };
-                    $.post('/profile', reqData, function(data) {
-                        console.log(data);
+                var form = $('<form/>', {});
+                var input = $('<input/>', {
+                    name: 'article',
+                    value: url,
+                    id: 'input'
+                })
+                var newCard = $('<div/>', {
+                    name: url,
+                    class: 'card'
 
-                        var a = $("<a>").attr('href', data.article);
-                        var p = $("<p>").text(data.title);
+                });
+                var cardHead = $('<div/>', {
+                    class: 'card-header'
+                });
+                var headline = $('<h4/>', {
+                    text: title
+                });
+                var newImg = $('<img/>', {
+                    class: 'card-img-top',
+                    src: attr,
+                    alt: 'Card image cap'
+                });
+                var a = $("<a/>", {
+                    href: url
+                });
+                var cardDiv = $('<div/>', {
+                    class: 'card-block'
+                });
+                var save = $('<button/>', {
+                    class: 'btn btn-link',
+                    name: title,
+                    id: url,
+                    type: 'submit',
+                    value: 'Submit',
+                    text: 'save',
+                    click: function(event) {
+                        event.preventDefault();
+                        var reqData = {
+                            title: this.name,
+                            article: this.id
+                        };
+                        $.post('/profile', reqData, function(data) {
+                            console.log(data);
 
-                        a.append(p);
+                            var a = $("<a>").attr('href', data.article);
+                            var p = $("<p>").text(data.title);
 
-                        $(".force-overflow").append(a);
+                            a.append(p);
 
-
-                    })
-                    $(this).text("saved");
-                    $(this).attr('disabled', true);
-                }
+                            $(".force-overflow").append(a);
 
 
-            });
+                        })
+                        $(this).text("saved");
+                        $(this).attr('disabled', true);
+                    }
 
 
-            cardHead.append(headline);
-            a.append(newImg);
-            cardDiv.append(a);
-            newCard.append(cardHead);
-            newCard.append(cardDiv);
-            newCard.append('<p>' + desc + '</p>');
-            newCard.append(save);
-            form.append(newCard);
-            form.append(input);
+                });
+
+               
+                	console.log("promise test");
+                	console.log(title);
+                	console.log(savedArr[i]);
+                	if(savedArr.indexOf(title) != -1){
+                		console.log(title + " **saved**");
+                		save.text('saved');
+                		save.attr('disabled', true);
+                	}else{
+                		console.log(title + " **not saved**")
+                	}
+                
+                // console.log(saved);
+                // console.log(savedArr.length);
+
+                // save.text("save");
+                // save.attr('disabled', false);
+                // }
+            
+
+        cardHead.append(headline); 
+        a.append(newImg); 
+        cardDiv.append(a); 
+        newCard.append(cardHead); 
+        newCard.append(cardDiv); 
+        newCard.append('<p>' + desc + '</p>'); 
+        newCard.append(save); 
+        form.append(newCard); 
+        form.append(input);
 
 
-            $('.bipsum').append(form);
-            // $('.bipsum').append('<br>');
-        }
-    });
+        $('.bipsum').append(form);
+        // $('.bipsum').append('<br>');
+    }
+});
 
 
 

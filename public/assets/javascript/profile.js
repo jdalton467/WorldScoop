@@ -1,10 +1,10 @@
-$(document).ready(function () {
-$('.dropdown-toggle').dropdown();
-$('.carousel').carousel();
-$('.carousel').carousel({
-interval: 2000
-});
-$().button('toggle');
+$(document).ready(function() {
+    $('.dropdown-toggle').dropdown();
+    $('.carousel').carousel();
+    $('.carousel').carousel({
+        interval: 2000
+    });
+    $().button('toggle');
 });
 
 
@@ -25,44 +25,78 @@ const length = 60;
 
 
 
+$.post("profile/saveduser", function(data) {
+    console.log(data.article);
+    var article = data.article;
+}).then(function(data) {
+    console.log(data.article);
+    var arr = [];
+    for (var i = 0; i < data.article.length; i++) {
+
+        $.post("profile/savedarticle", {
+            _id: data.article[i]
+        }, function(data) {
+            console.log(data);
+
+            var a = $("<a>").attr('href', data.article);
+            var p = $("<p>").text(data.title);
+
+            a.append(p);
+
+            $(".force-overflow").append(a);
+        })
+    }
+
+
+});
+
+
+// function savedArticles(article){
+// for(var i = 0; article.length; i++){
+// var reqData = {_id:article[i]};
+// $.post('profile/savedarticle', reqData,function(data){
+// console.log(data);
+// })
+// i++;
+// }
+// }
+
 // var lat;
 // var long;
 /////////weather api test//////////////////////////
 
 /////////////googlemap api test/////////////////////
 
+
+
 $.ajax({
-	url:"https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAwFfSMie364wTnCSYC53YSZSNgEZwF6Ws",
-	method: "POST"
-}).done(function(response){
-	console.log(response);
-	console.log("lat: " + response.location.lat);
-	console.log("long: " + response.location.lng)
-	var lat = response.location.lat;
-	var long = response.location.lng;
-	getWeather(lat,long);
+    url: "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAwFfSMie364wTnCSYC53YSZSNgEZwF6Ws",
+    method: "POST"
+}).done(function(response) {
+    console.log(response);
+    console.log("lat: " + response.location.lat);
+    console.log("long: " + response.location.lng)
+    var lat = response.location.lat;
+    var long = response.location.lng;
+    getWeather(lat, long);
 })
 
-function getWeather(lat,long){
-	$.ajax({
-	url:"http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long+"&units=imperial&APPID=" + APIkey,
-	method: "GET"
-}).done(function(response){
-	console.log(response);
-	console.log(response.main);
-	console.log(response.weather);
-	var place = $('<p>' + "current weather for " + response.name + '</p>');
-	var desc =  $('<p>' + "description: " + response.weather[0].description + '</p>');
-	var temp = $('<p>' + "temp: " + response.main.temp + " F" + '</p>');
-	var humidity = $('<p>' + 'humidity: ' + response.main.humidity + '</p>');
-	$('#leftside').append(place).append(desc).append(temp).append(humidity);
+function getWeather(lat, long) {
+    $.ajax({
+        url: "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&units=imperial&APPID=" + APIkey,
+        method: "GET"
+    }).done(function(response) {
+        console.log(response);
+        console.log(response.main);
+        console.log(response.weather);
+        var place = $('<p>' + "current weather for " + response.name + '</p>');
+        var desc = $('<p>' + "description: " + response.weather[0].description + '</p>');
+        var temp = $('<p>' + "temp: " + response.main.temp + " F" + '</p>');
+        var humidity = $('<p>' + 'humidity: ' + response.main.humidity + '</p>');
+        $('#leftside').append(place).append(desc).append(temp).append(humidity);
 
-})
+    })
 };
-
-
-
-
 
 
 
@@ -74,43 +108,43 @@ function getWeather(lat,long){
 
 ////////////////////////////////////
 
-getNews();//calling the getNews function right away
+getNews(); //calling the getNews function right away
 ///////////////////////////////////////////////////////////////////
 //getting the sources from the api to 
 //be used in subsequent ajax calls
 $.ajax({
-url:"https://newsapi.org/v1/sources?language=en",
-method: "GET"
+    url: "https://newsapi.org/v1/sources?language=en",
+    method: "GET"
 }).done(function(response) {
-console.log(response);
-console.log(response.sources.length);
-for(var i = 0; i < response.sources.length; i++){
-	// console.log(response.sources[i].id);
-	// console.log(response.sources[i].name);
-	// console.log("======================");
-	// <a class="dropdown-item" href="#"></a>
-	// <a class="dropdown-item" href="#"></a>
-	// <a class="dropdown-item" href="#"></a>
-	id = response.sources[i].id;
-	sourceName = response.sources[i].name;
-	 var newSource = $('<option/>',{
-      class: 'dropdown-item',
-      name: i,
-      href: '#',
-      value: id,
-      text: sourceName,
-      click: function (event){
-       	$(".carousel-item").remove();
-        var source = this.value;
-        queryURL = "https://newsapi.org/v1/articles?source="+source+"&apiKey=5d9f7c67d4384f35bd73aa91efca8a73";
-        $(".btn").text(this.text);
-        // console.log(queryURL);
-        getNews();
-      }
-    });
-	$('.dropdown-menu').append(newSource);
+    console.log(response);
+    console.log(response.sources.length);
+    for (var i = 0; i < response.sources.length; i++) {
+        // console.log(response.sources[i].id);
+        // console.log(response.sources[i].name);
+        // console.log("======================");
+        // <a class="dropdown-item" href="#"></a>
+        // <a class="dropdown-item" href="#"></a>
+        // <a class="dropdown-item" href="#"></a>
+        id = response.sources[i].id;
+        sourceName = response.sources[i].name;
+        var newSource = $('<option/>', {
+            class: 'dropdown-item',
+            name: i,
+            href: '#',
+            value: id,
+            text: sourceName,
+            click: function(event) {
+                $(".carousel-item").remove();
+                var source = this.value;
+                queryURL = "https://newsapi.org/v1/articles?source=" + source + "&apiKey=5d9f7c67d4384f35bd73aa91efca8a73";
+                $(".btn").text(this.text);
+                // console.log(queryURL);
+                getNews();
+            }
+        });
+        $('.dropdown-menu').append(newSource);
 
-}
+    }
 
 });
 ///////////////////////////////////////////////////////////////////
@@ -125,96 +159,106 @@ for(var i = 0; i < response.sources.length; i++){
 ///////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////
-function getNews(){
-$('.bipsum').empty();
-$.ajax({
-url: queryURL,
-method: "GET"
-}).done(function(response) {
-// console.log(response.articles.length);
-for(var i = 0; i < response.articles.length; i++){
-	// console.log(response.articles[i].author);
-	// console.log(response.articles[i].title);
-	// console.log(response.articles[i].urlToImage);
-	// console.log("----------------------------");
-		attr = response.articles[i].urlToImage;
-		title = response.articles[i].title;
-		desc = response.articles[i].description;
-		url = response.articles[i].url;
+function getNews() {
+    $('.bipsum').empty();
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).done(function(response) {
+        // console.log(response.articles.length);
+        for (var i = 0; i < response.articles.length; i++) {
+            // console.log(response.articles[i].author);
+            // console.log(response.articles[i].title);
+            // console.log(response.articles[i].urlToImage);
+            // console.log("----------------------------");
+            attr = response.articles[i].urlToImage;
+            title = response.articles[i].title;
+            desc = response.articles[i].description;
+            url = response.articles[i].url;
 
 
-		var form = $('<form/>',{
-		});
-		var input = $('<input/>',{
-			name: 'article',
-			value: url,
-			id: 'input'
-		})
-		var newCard = $('<div/>',{
-			name: url,
-			class: 'card'
+            var form = $('<form/>', {});
+            var input = $('<input/>', {
+                name: 'article',
+                value: url,
+                id: 'input'
+            })
+            var newCard = $('<div/>', {
+                name: url,
+                class: 'card'
 
-		});
-		var cardHead = $('<div/>',{
-			class: 'card-header'
-		});
-		var headline = $('<h4/>',{
-			text: title
-		});
-		var newImg = $('<img/>',{
-			class: 'card-img-top',
-			src: attr,
-			alt: 'Card image cap'
-		});
-		var a = $("<a/>",{
-			href: url
-		});
-		var cardDiv = $('<div/>',{
-			class:'card-block'
-		});
-		var save = $('<button/>',{
-			class: 'btn btn-link',
-			name: title,
-			id: url,
-			type: 'submit',
-			value: 'Submit',
-			text: 'save',
-			click: function(event){
-				event.preventDefault();
-				var reqData = {title: this.name, article : this.id};
-				$.post('/profile', reqData, function(data){
-					console.log(data);
-					
-					var a = $("<a>").attr('href', data.article);
-					var p = $("<p>").text(data.title);
-					
-					a.append(p);
-					
-					$(".force-overflow").append(a);
-					
+            });
+            var cardHead = $('<div/>', {
+                class: 'card-header'
+            });
+            var headline = $('<h4/>', {
+                text: title
+            });
+            var newImg = $('<img/>', {
+                class: 'card-img-top',
+                src: attr,
+                alt: 'Card image cap'
+            });
+            var a = $("<a/>", {
+                href: url
+            });
+            var cardDiv = $('<div/>', {
+                class: 'card-block'
+            });
+            var save = $('<button/>', {
+                class: 'btn btn-link',
+                name: title,
+                id: url,
+                type: 'submit',
+                value: 'Submit',
+                text: 'save',
+                click: function(event) {
+                    event.preventDefault();
+                    var reqData = {
+                        title: this.name,
+                        article: this.id
+                    };
+                    $.post('/profile', reqData, function(data) {
+                        console.log(data);
 
-				})
-				$(this).text("saved");
-				$(this).attr('disabled',true);
-			}
+                        var a = $("<a>").attr('href', data.article);
+                        var p = $("<p>").text(data.title);
 
-			
-		});
-		
-		
-		cardHead.append(headline);
-		a.append(newImg);
-		cardDiv.append(a);
-		newCard.append(cardHead);
-		newCard.append(cardDiv);
-		newCard.append('<p>' + desc + '</p>');
-		newCard.append(save);
-		form.append(newCard);
-		form.append(input);
+                        a.append(p);
+
+                        $(".force-overflow").append(a);
 
 
-		$('.bipsum').append(form);
-		// $('.bipsum').append('<br>');
-}
-});
+                    })
+                    $(this).text("saved");
+                    $(this).attr('disabled', true);
+                }
+
+
+            });
+
+
+            cardHead.append(headline);
+            a.append(newImg);
+            cardDiv.append(a);
+            newCard.append(cardHead);
+            newCard.append(cardDiv);
+            newCard.append('<p>' + desc + '</p>');
+            newCard.append(save);
+            form.append(newCard);
+            form.append(input);
+
+
+            $('.bipsum').append(form);
+            // $('.bipsum').append('<br>');
+        }
+    });
+
+
+
+
+
+
+
+
 };

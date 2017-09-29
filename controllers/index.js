@@ -34,6 +34,36 @@ router.get('/profile', isLoggedIn, function(req, res) {
     // User.find();
 
 });
+router.post('/profile/saveduser', function(req,res){
+    User.findOne({
+        "_id": req.user._id,
+        }).exec(function(err,doc){
+        if(err){
+            res.send(err);
+        }else{
+            res.send(doc);
+            
+        }
+    });
+});
+
+router.post('/profile/savedarticle', function(req,res){
+    // console.log(req.body);
+    console.log(req.body);
+    Article.findOne({
+        "_id": req.body._id,
+        }).exec(function(err,doc){
+        if(err){
+            res.send(err);
+        }else{
+            res.send(doc);
+            console.log(doc);
+            
+        }
+    });
+});
+
+
 
 router.post('/profile', function(req, res) {
     console.log(req.body);
@@ -64,6 +94,8 @@ router.post('/profile', function(req, res) {
     })
 
 })
+
+
 
 router.get('/logout', function(req, res) {
     req.logout();

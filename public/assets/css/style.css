@@ -264,6 +264,7 @@ li{
 	border-radius: 5px;
 	margin-right: 50px;
 	margin-top: 80px;
+	font-size: 16px;
 	/*overflow: auto;*/
 
 }
@@ -385,3 +386,25 @@ nav{
 #input{
 	display: none;
 }
+
+.close{
+	/*left:0px;*/
+	float: left;
+	/*top: 0px;*/
+	/*color: red;*/
+/**/
+
+}
+.close:hover{
+	color: red;
+}
+
+.savedAnchor{
+	/*padding:0px;*/
+	/*margin-right:50px;*/
+	/*font-size: 12px;*/
+
+}
+
+
+

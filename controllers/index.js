@@ -103,13 +103,28 @@ router.post('/profile', function(req, res) {
 router.post('/profile/delete', function(req, res) {
     console.log(req.body.title);
     console.log(req.body.article);
+    console.log(req.body);
     Article.remove({
         title: req.body.title
     }, function(err,doc) {
         if (err) {
             handleError(err);
         }else{
-            res.send(doc);
+            User.findOneAndUpdate({
+                _id: req.user._id
+            }, {
+
+                $pull: {
+                    article: req.body._id
+                }
+            }).exec(function(err, doc){
+                if(err){
+                    res.send(err);
+                }else{
+                    res.send(doc);
+                    console.log(doc);
+                }
+            })
         }
     })
 });

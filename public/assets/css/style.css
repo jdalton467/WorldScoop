@@ -7,6 +7,7 @@ body{
 
 .nav-item:hover{
 	background-color: red;
+	border: solid 3px #03B3CE;
 	/*text-decoration:none;*/
 }
 
@@ -198,6 +199,7 @@ li{
 	/*position: absolute;*/
 	/*margin-left: 250px;*/
 	margin-top: 80px;
+	border: solid 3px #03B3CE;
 	/*background-color: #C4F7A9;*/
 
 }
@@ -219,7 +221,7 @@ li{
 
 
 .lorem{
-	background-color: #C4F7A9;
+	background-color: #9EAFCA;
 	opacity: .95;
 	position: relative;
 	height: 520px;
@@ -265,6 +267,7 @@ li{
 	margin-right: 50px;
 	margin-top: 80px;
 	font-size: 16px;
+	border: solid 3px #03B3CE;
 	/*overflow: auto;*/
 
 }
@@ -292,14 +295,14 @@ li{
 	height: 300px;
 	width: 65px;
 	background: #413F3F;
-	overflow-y: scroll;
+	overflow-y: auto;
 	margin-bottom: 25px;
 	width: 100%;
 }
 
 .force-overflow
 {
-	min-height: 450px;
+	/*min-height: 450px;*/
 	background-color:#413F3F; 
 	width: 100%;
 }
@@ -335,6 +338,7 @@ li{
 
 #leftside{
 	background-color: #413F3F;
+	border: solid 3px #03B3CE;
 	color: white;
 	font-family: courier;
 	opacity: 1;
@@ -347,14 +351,31 @@ li{
 }
 
 #rightside{
-	background-color: red;
-	opacity: .90;
+	background-color: #413F3F;
+	border: solid 3px #03B3CE;
+	opacity: .98;
 	position: fixed;
 	float: right;
 	height: 180px;
 	width: 300px;
 	border-radius: 5px;
 	margin-top: 225px;	
+}
+
+.nav-row{
+	margin-left: 10px;
+}
+
+.fa-sign-out{
+	margin-left: 80px;
+	text-decoration: none;
+	padding: 10px;
+}
+
+.fa-sign-out:hover{
+	background-color: red;
+	text-decoration: none;
+	border: 3px solid #03B3CE;
 }
 
 

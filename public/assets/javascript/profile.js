@@ -181,7 +181,7 @@ $.ajax({
 
 function getWeather(lat, long) {
     $.ajax({
-        url: "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&units=imperial&APPID=" + APIkey,
+        url: "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&units=imperial&APPID=" + APIkey,
         method: "GET"
     }).done(function(response) {
         console.log(response);

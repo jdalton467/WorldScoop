@@ -20,7 +20,13 @@ var session = require('express-session');
 
 
 var configDB = require('./config/connection.js');
-mongoose.connect(configDB.url);
+if(process.env.MONGODB_URI){
+	mongoose.connect(process.env.MONGODB_URI);
+}else{
+	mongoose.connect(configDB.url);
+}
+
+
 
 var app = express();
 

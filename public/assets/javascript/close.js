@@ -29,6 +29,7 @@ function closeMaker(data) {
             close.remove();
 
 
+
         }
     });
     var span = $('<span/>', {
@@ -37,8 +38,10 @@ function closeMaker(data) {
     });
     close.append(span);
     // a.after(close)
+    p.append( '<p>'+ "(" + sourceName + ")" + '</p>');
     a.append(p);
     a.prepend(close);
+   
 
 	$(".force-overflow").append(a);
 }

@@ -210,6 +210,8 @@ setTimeout(getNews, 1000); //calling the getNews function right away
 ///////////////////////////////////////////////////////////////////
 //getting the sources from the api to 
 //be used in subsequent ajax calls
+
+
 $.ajax({
     url: "https://newsapi.org/v1/sources?language=en",
     method: "GET"
@@ -232,6 +234,7 @@ $.ajax({
                 queryURL = "https://newsapi.org/v1/articles?source=" + source + "&apiKey=5d9f7c67d4384f35bd73aa91efca8a73";
                 $(".btn").text(this.text);
                 // console.log(queryURL);
+                sourceName = this.text;
                 getNews();
             }
         });

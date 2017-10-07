@@ -171,6 +171,7 @@ $.ajax({
     url: "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAwFfSMie364wTnCSYC53YSZSNgEZwF6Ws",
     method: "POST"
 }).done(function(response) {
+   
     console.log(response);
     console.log("lat: " + response.location.lat);
     console.log("long: " + response.location.lng)

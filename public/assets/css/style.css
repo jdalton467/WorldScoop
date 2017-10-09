@@ -1,16 +1,19 @@
 
 .about{
 	font-size: 16px;
-	width: 500px;
-	position: absolute;
+	width: 600px;
+	height: 520px;
+	position:relative;
+
 
 }
 
 
 
 body{
-	/*position:relative;*/
+	position:relative;
 	background-color: #58D2F1;
+	/*overflow: auto;*/
 
 }
 
@@ -18,20 +21,34 @@ body{
 	z-index: 1;
 	position: relative;
 	padding-top: 70px;
+	height: 600px;
 }
 
+.secondbipsum{
+	
+	z-index: 1;
+	position: relative;
+	padding-top: 70px;
+	/*height: 600px;*/
+}
+
+
+
 .card{
-	height: 600px;
-	/*width: 1349px;*/
+	height: 540px;
+	width: 100%;
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-bottom: 10px;
 	position: relative;
+	/*left:0px;*/
+	/*top: 0px;*/
 	/*margin-left: 250px;*/
-	margin-top: 300px;
+	margin-top: 320px;
 	margin:auto;
 	border: solid 3px #03B3CE;
 	/*background-color: #C4F7A9;*/
+	/*margin-right: 100px;*/
 	
 }
 
@@ -67,10 +84,21 @@ body{
 }
 
 .carousel{
-	margin-top: 100px;
-	height: 520px;
+	margin-top: 70px;
+	height: 100%;
 	width: 100%;
-	/*position: relative;*/
+	position: absolute;
+	top:0px;
+	left: -12px;
+}
+
+.carousel-inner{
+	/*margin-top: 10px;*/
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
 }
 
 
@@ -90,6 +118,7 @@ body{
 	background-image: url("../images/scoop.jpg");
 	left: 0px;
 	overflow-y: auto;
+	overflow-x: hidden;
 	
 }
 
@@ -124,12 +153,12 @@ body{
 #footer{
 	/*position: fixed;*/
 	margin:auto;
-	background-color: #292B2C;
+	background-color: #413F3F;
 	height: 100px;
 	border-top:solid red 5px;
 	color: #fff;
 	text-align: center;
-	opacity: .95;
+	opacity: .99;
 	font-family: courier;
 	width: 100%;
 	padding-top: 10px;
@@ -145,22 +174,33 @@ body{
 	width: 100%;
 }
 
-.frontcard{
-	height: 520px;
-	width: 630px;
+#frontcard{
+	height: 540px;
+	width: 100%;
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-bottom: 10px;
-	margin-top: 80px;
+	position: absolute;
+	left:0px;
+	top: 0px;
+	/*margin-left: 250px;*/
+	margin-top: 320px;
+	margin:auto;
+	border: solid 3px #03B3CE;
+	/*background-color: #C4F7A9;*/
+	/*margin-right: 100px;*/
+	
 }
 
 .frontipsum{
 	position: relative;
-	margin-right: 0px;
-	margin-left:0px;
+	/*margin-right: 0px;*/
+	/*margin-left:0px;*/
 	/*z-index: 2;*/
-	width: 100%;
-	/*background-color: #34E2E4;*/
+
+	opacity: .99;
+	width: 102.5%;
+	/*background-color: #03B3CE;*/
 	padding: 10px;
 	/*overflow: auto;*/
 
@@ -183,7 +223,7 @@ img{
 	margin-left:0px;
 	z-index: 2;
 	width: 90%;
-	/*background-color: #34E2E4;*/
+	/*background-color: #03B3CE;*/
 	padding: 10px;
 	/*overflow: auto;*/
 
@@ -223,10 +263,11 @@ li{
 	background-color: #03B3CE;
 	border: solid 3px #03B3CE;
 	opacity: .90;
-	position: relative;
-	height: 520px;
-	width: 90%;
-	/*border-radius: 5px;*/
+	position: absolute;
+	height: 600px;
+	width: 700px;
+	top: 0px;
+	right: 0px;
 	margin-top: 80px;
 	font-size: 18px;
 	padding: 20px;

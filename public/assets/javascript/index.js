@@ -88,6 +88,7 @@ function getNews(sourceName) {
         });
         var newCard = $('<div/>', {
             class: 'card',
+            id: 'frontcard'
             // class: 'frontcard'
         });
         var cardHead = $('<div/>', {

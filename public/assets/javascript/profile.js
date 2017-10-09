@@ -24,7 +24,7 @@ const length = 60;
 var savedArr = [];
 
 function getNews() {
-    $('.bipsum').empty();
+    $('.secondbipsum').empty();
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -120,8 +120,8 @@ function getNews() {
             newCard.append(save);
             
 
-             $('.bipsum').append('<br>');
-            $('.bipsum').append(newCard);
+             $('.secondbipsum').append('<br>');
+            $('.secondbipsum').append(newCard);
            
         }
     });

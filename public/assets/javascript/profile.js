@@ -42,12 +42,6 @@ function getNews() {
 
 
 
-            var form = $('<form/>', {});
-            var input = $('<input/>', {
-                name: 'article',
-                value: url,
-                id: 'input'
-            })
             var newCard = $('<div/>', {
                 name: url,
                 class: 'card'
@@ -124,12 +118,11 @@ function getNews() {
             newCard.append(cardDiv);
             newCard.append('<p>' + desc + '</p>');
             newCard.append(save);
-            form.append(newCard);
-            form.append(input);
+            
 
-
-            $('.bipsum').append(form);
-            // $('.bipsum').append('<br>');
+             $('.bipsum').append('<br>');
+            $('.bipsum').append(newCard);
+           
         }
     });
 

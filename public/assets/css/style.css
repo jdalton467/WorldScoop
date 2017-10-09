@@ -1,7 +1,9 @@
 
 .about{
 	font-size: 16px;
-	width: 100%;
+	width: 500px;
+	position: absolute;
+
 }
 
 
@@ -14,20 +16,23 @@ body{
 
 .bipsum{
 	z-index: 1;
+	position: relative;
+	padding-top: 70px;
 }
 
 .card{
-	height: 520px;
-	width: 630px;
+	height: 600px;
+	/*width: 1349px;*/
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-bottom: 10px;
-	/*position: absolute;*/
+	position: relative;
 	/*margin-left: 250px;*/
-	margin-top: 80px;
+	margin-top: 300px;
+	margin:auto;
 	border: solid 3px #03B3CE;
 	/*background-color: #C4F7A9;*/
-
+	
 }
 
 .card p{
@@ -39,7 +44,7 @@ body{
 	z-index: 9;
 	height: 100%;
 	width: 100%;
-	height: 320px;
+	/*height: 320px;*/
 	
 }
 
@@ -62,9 +67,13 @@ body{
 }
 
 .carousel{
+	margin-top: 100px;
 	height: 520px;
-	width: 653px;
+	width: 100%;
+	/*position: relative;*/
 }
+
+
 
 .close{
 	float: left;
@@ -80,7 +89,8 @@ body{
 	position: fixed;
 	background-image: url("../images/scoop.jpg");
 	left: 0px;
-	overflow: auto;
+	overflow-y: auto;
+	
 }
 
 
@@ -125,6 +135,7 @@ body{
 	padding-top: 10px;
 	left: 0px;
 	position: absolute;
+
 	/*margin-bottom: 100px;*/
 }
 
@@ -147,8 +158,8 @@ body{
 	position: relative;
 	margin-right: 0px;
 	margin-left:0px;
-	z-index: 2;
-
+	/*z-index: 2;*/
+	width: 100%;
 	/*background-color: #34E2E4;*/
 	padding: 10px;
 	/*overflow: auto;*/
@@ -171,10 +182,10 @@ img{
 	margin-right: 0px;
 	margin-left:0px;
 	z-index: 2;
-
+	width: 90%;
 	/*background-color: #34E2E4;*/
 	padding: 10px;
-	overflow: auto;
+	/*overflow: auto;*/
 
 }
 
@@ -209,14 +220,16 @@ li{
 }
 
 .lorem{
-	background-color: #9EAFCA;
-	opacity: .95;
+	background-color: #03B3CE;
+	border: solid 3px #03B3CE;
+	opacity: .90;
 	position: relative;
 	height: 520px;
-	width: 650px;
-	border-radius: 5px;
+	width: 90%;
+	/*border-radius: 5px;*/
 	margin-top: 80px;
 	font-size: 18px;
+	padding: 20px;
 }
 
 .lorem2{
@@ -240,14 +253,31 @@ nav{
 	font-family: courier;
 	border-bottom: red solid 5px;
 	padding: 5px;
-	position: fixed;
+
+	position: absolute;
 	left:0px;
 	margin-top: 15px;
 	z-index: 10;
 }
 
+#nav-profile{
+		width: 100%;
+	background-color: #413F3F;
+	color: white;
+	font-family: courier;
+	border-bottom: red solid 5px;
+	padding: 5px;
+	/*height: 100px;*/
+	position: fixed;
+	left:0px;
+	top: 0px;
+	margin-top: 20px;
+	z-index: 10;
+}
+
 .navbar-nav{
 	display: inline-block;
+
 }
 
 
@@ -280,16 +310,18 @@ nav{
 }
 
 
+
 #rightside{
 	background-color: #413F3F;
 	border: solid 3px #03B3CE;
 	opacity: .98;
 	position: fixed;
-	float: right;
+	float: left;
 	height: 180px;
-	width: 300px;
+	width: 400px;
 	border-radius: 5px;
-	margin-top: 225px;	
+	margin-top: 10px;	
+	z-index: 1;
 }
 
 
@@ -298,14 +330,15 @@ nav{
 	color: white;
 	opacity: .95;
 	position: fixed;
-	right: 0px;
-	height: 420px;
-	width: 300px;
+	left: 0px;
+	height: 250px;
+	width: 400px;
 	border-radius: 5px;
-	margin-right: 50px;
-	margin-top: 80px;
+	margin-left: 40px;
+	margin-top: 200px;
 	font-size: 16px;
 	border: solid 3px #03B3CE;
+	z-index: 0;
 	/*overflow: auto;*/
 
 }
@@ -330,7 +363,7 @@ nav{
 {
 	/*margin-left: 30px;*/
 	float: left;
-	height: 300px;
+	height: 200px;
 	width: 65px;
 	background: #413F3F;
 	overflow-y: auto;
@@ -341,10 +374,10 @@ nav{
 .sidebar{
 	background-color: red;
 	opacity: .8;
-	position: fixed;
-	float: right;
+	/*position: fixed;*/
+	/*float: right;*/
 	height: 470px;
-	width: 180px;
+	width: 300px;
 	border-radius: 5px;	
 }
 

@@ -124,6 +124,7 @@ body{
 	width: 100%;
 	padding-top: 10px;
 	left: 0px;
+	position: absolute;
 	/*margin-bottom: 100px;*/
 }
 
@@ -469,6 +470,9 @@ nav{
 	.savedArticles{
 		width: 50%;
 		margin-left: 50px;
+	}
+	.lorem{
+		clear: both;
 	}
 }
 

@@ -56,7 +56,7 @@ function getWeather(lat, long) {
         var desc = $('<p>' + "description: " + response.weather[0].description + '</p>');
         var temp = $('<p>' + "temp: " + response.main.temp + " F" + '</p>');
         var humidity = $('<p>' + 'humidity: ' + response.main.humidity + '</p>');
-        $('#leftside').append(place).append(desc).append(temp).append(humidity);
+        $('#rightside').append(place).append(desc).append(temp).append(humidity);
 
     })
 };

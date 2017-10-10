@@ -129,8 +129,11 @@ body{
 }
 
 .dropdown{
-	margin-top: 75px;
-	margin-left: 75px;
+	/*margin-top: 75px;*/
+	position: absolute;
+	margin-left: 500px;
+	display: inline;
+	bottom: 5px;
 }
 
 .dropdown-menu{
@@ -139,9 +142,11 @@ body{
 }
 
 .fa-sign-out{
+	/*margin-top: 10px;*/
 	margin-left: 80px;
 	text-decoration: none;
 	padding: 10px;
+	position: absolute;
 }
 
 .fa-sign-out:hover{
@@ -363,6 +368,9 @@ nav{
 	border-radius: 5px;
 	margin-top: 10px;	
 	z-index: 1;
+	color:white;
+	padding-left: 10px;
+	padding-top: 10px;
 }
 
 
@@ -444,8 +452,9 @@ nav{
 
 
 #title{
-	margin-top:20px;
+	margin-top:30px;
 	margin-left: 20px;
+	/*display: inline-block;*/
 	
 }
 
@@ -456,133 +465,157 @@ nav{
 	margin: auto;
 }
 
-@media only screen and (max-width: 980px){
+/*@media handheld, screen and (max-width: 980px){*/
+	
 
-	.bipsum{
-		float: none;
-		width: auto;
+	
+/*}*/
+
+/*@media handheld, screen and (max-width: 768px){*/
+	
+
+	
+
+/*}*/
+
+@media handheld, screen and (max-width: 768px){
+	
+	/*.container{*/
+		/*width: 100%;*/
+		/*height: 100%;*/
+	/*}*/
+	.secondbipsum{
+		position: relative;
+		padding-left: 50px;
 	}
 
-	.container{
-		width: 100%;
-		height: 100%;
+	#profcard{
+		/*position: absolute;*/
+		width: 400px;
+		/*margin*/
 	}
 
+	.dropdown{
+		position: absolute;
+		left: -100px;
+	}
 
-	.carousel{
-		float: left;
+	#savedArticles{
+		width: 300px;
 	}
 	
+	#rightside{
+		width: 300px;
+	}
+
+	#nav-profile{
+		position: fixed;
+		top: -20px;
+
+	}
+
 	.navbar{
-		width: 100%;
-	}
-	.card{
-		width: 77%;
-		margin-left: 75px;
-	}
-
-	.savedArticles{
-		width: 50%;
-		margin-left: 50px;
-
-	}
-}
-
-@media only screen and (max-width: 768px){
-	
-	.bipsum{
-		float: none;
-		width: auto;
-	}
-
-	.container{
-		width: 100%;
-		height: 100%;
-	}
-	
-	.navbar{
-		width: 100%;
-	}
-	.carousel{
-		float: left;
-	}
-	.card{
-		width: 77%;
-		margin-left: 75px;
-	}
-	.savedArticles{
-		width: 50%;
-		margin-left: 50px;
-	}
-}
-
-@media only screen and (max-width: 320px){
-	
-	.bipsum{
-		float: none;
-		width: auto;
-	}
+		max-width: 768px;
 		
-	.container{
-		width: 100%;
-		height: 100%;
+		position: absolute;
+		top: -15px;
+
 	}
 
-	.navbar{
-		width: 100%;
-	}
 
+
+	.about{
+		position: absolute;
+		width: 780px;
+		height: 330px;
+		padding-top: 10px;
+		padding-left: 30px;
+		padding-right: 50px;
+		background-color: #03B3CE;
+		margin-top: 230px;
+		right: -12px;
+		top:0px;
+		/*margin-right: 10px;*/
+		float: right;
+		z-index: 0;
+	}
 	.carousel{
-		float: left;
+		position: absolute;
+		width: 768px;
+		height: 600px;
+		margin-top: 85px;
+		right: 0px;
+		clear: right;
+		float: right;
+		z-index: 0;
 	}
-	
-	.card{
-		width: 77%;
-		margin-left: 75px;
-	}
-	
-	.savedArticles{
-		width: 50%;
-		margin-left: 50px;
-	}
-	.lorem{
-		clear: both;
-	}
-}
-
-
-@media only screen and (max-width: 168px){
-	
 
 	.bipsum{
-		float: none;
-		width: auto;
+		width: 768px;
+		position: relative;
+		height: 920px;
 	}
 
-	.container{
+
+
+	.lorem{
+		position: absolute;
 		width: 100%;
-		height: 100%;
+		margin-top: 400px;
+		
+		z-index: -1;
 	}
 	
-	.navbar{
-		width: 100%;
+	#title{
+		margin-left: 5px;
 	}
 
-	.carousel{
-		float: left;
-	}
-
-	.card{
-		width: 77%;
-		margin-left: 80px;
+	#desc{
+		margin-left: -40px;
+		text-align: left;
 	}
 	
-	.savedArticles{
-		width: 50%;
-		margin-left: 50px;
-
+	.nav-item{
+		font-size: 11px;
 	}
+
+	.fa-sign-out{
+	/*margin-top: 10px;*/
+	margin-right: 80px;
+	text-decoration: none;
+	padding: 10px;
+	position: absolute;
+	left: 0px;
+	bottom: 30px;
+	
+	
+
 }
+
+
+/*@media handheld, screen and (max-width: 168px){*/
+	
+	/*.navbar{*/
+		/*width: 100%*/
+	/*}*/
+
+
+	/*.container{*/
+		/*width: 100%;*/
+		/*height: 100%;*/
+	/*}*/
+
+	/*.lorem{*/
+		/*clear:both;*/
+	/*}*/
+
+	/*.about{*/
+		/*clear: left;*/
+	/*}*/
+	
+
+	
+/*}*/
 
 
 

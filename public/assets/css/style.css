@@ -498,6 +498,7 @@ nav{
 	.dropdown{
 		position: absolute;
 		left: -100px;
+		z-index: 11;
 	}
 
 	#savedArticles{
@@ -532,7 +533,7 @@ nav{
 		padding-left: 30px;
 		padding-right: 50px;
 		background-color: #03B3CE;
-		margin-top: 230px;
+		/*margin-top: 230px;*/
 		right: -12px;
 		top:0px;
 		/*margin-right: 10px;*/
@@ -561,9 +562,9 @@ nav{
 	.lorem{
 		position: absolute;
 		width: 100%;
-		margin-top: 400px;
-		
-		z-index: -1;
+		margin-top: 640px;
+		height: auto;
+		z-index: 0;
 	}
 	
 	#title{
@@ -588,10 +589,8 @@ nav{
 	left: 0px;
 	bottom: 30px;
 	}
-	
 
 }
-
 
 /*@media handheld, screen and (max-width: 360px){*/
 	/*.container{*/

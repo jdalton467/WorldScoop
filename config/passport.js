@@ -1,3 +1,6 @@
+
+
+var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;  
 var User = require('../controllers/models/user');
 
@@ -50,7 +53,8 @@ module.exports = function(passport) {
           return done(null, false, req.flash('loginMessage', 'No user found.'));
       if (!user.validPassword(password))
           return done(null, false, req.flash('loginMessage', 'Wrong password.'));
-      return done(null, user);
+      
+      console.log( done(null, user));
     });
   }));
 };

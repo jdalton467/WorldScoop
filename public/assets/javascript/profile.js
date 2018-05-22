@@ -24,7 +24,7 @@ const length = 60;
 var savedArr = [];
 
 function getNews() {
-    $('.secondbipsum').empty();
+    $('.col-sm-7').empty();
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -121,8 +121,8 @@ function getNews() {
             newCard.append(save);
             
 
-             $('.secondbipsum').append('<br>');
-            $('.secondbipsum').append(newCard);
+             $('.col-sm-7').append('<br>');
+            $('.col-sm-7').append(newCard);
            
         }
     });
@@ -224,7 +224,7 @@ $.ajax({
             value: id,
             text: sourceName,
             click: function(event) {
-                $(".carousel-item").remove();
+                $(".card").remove();
                 var source = this.value;
                 queryURL = "https://newsapi.org/v1/articles?source=" + source + "&apiKey=5d9f7c67d4384f35bd73aa91efca8a73";
                 $(".btn").text(this.text);

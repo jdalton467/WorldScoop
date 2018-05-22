@@ -16,14 +16,14 @@ $.ajax({
     url: "https://newsapi.org/v1/sources?language=en",
     method: "GET"
 }).done(function(response) {
-    // console.log(response);
+    console.log(response);
     // console.log(response.sources.length);
     var length = response.sources.length;
     // console.log(length);
     // console.log(response.sources);
-
+    const APIARTICLES = 60;
     for (var i = 0, arr = []; i < 10; i++) {
-        var newNum = Math.floor(Math.random() * 60);
+        var newNum = Math.floor(Math.random() * APIARTICLES);
         arr.push(newNum);
     }
     console.log("arr: " + arr);

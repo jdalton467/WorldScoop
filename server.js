@@ -41,6 +41,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname,'public')));
 
+app.use(express.static("public"));
 app.use(session({secret:'marbles'})); //session secret
 app.use(passport.initialize());
 app.use(passport.session()); //persistent login sessions
